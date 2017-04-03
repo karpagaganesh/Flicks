@@ -10,14 +10,14 @@ The following **required** functionality is completed:
 - [X] User can view a list of movies currently playing in theaters. Poster images load asynchronously.
 - [X] User can view movie details by tapping on a cell.
 - [X] User sees loading state while waiting for the API.
-- [ ] User sees an error message when there is a network error.
+- [X] User sees an error message when there is a network error.
 - [X] User can pull to refresh the movie list.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='./Flicks.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
