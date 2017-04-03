@@ -5,6 +5,7 @@ import KVLoading
 class FlicksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var networkErrorView: UIView!
     
     var movies: [NSDictionary]?
     let refreshControl = UIRefreshControl();
@@ -15,7 +16,9 @@ class FlicksViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad();
         tableView.dataSource = self;
         tableView.delegate = self;
-        
+        networkErrorView.alpha = 0;
+        networkErrorView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.8)
+
         initiateNetworkRequestForNowPlaying();
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged);
         tableView.insertSubview(refreshControl, at: 0);
@@ -79,13 +82,25 @@ class FlicksViewController: UIViewController, UITableViewDataSource, UITableView
         )
         
         let task : URLSessionDataTask = session.dataTask(with: request as URLRequest,completionHandler: { (dataOrNill, response, error) in
-            if let data = dataOrNill {
-                if let responseDictionary = try! JSONSerialization.jsonObject(
-                    with: data, options:[]) as? NSDictionary{
-                    self.movies = (responseDictionary["results"] as! [NSDictionary]);
-                    self.tableView.reloadData();
-                    self.refreshControl.endRefreshing()
+            self.movies = []
+            
+            if error == nil {
+                if let data = dataOrNill {
+                    if let responseDictionary = try! JSONSerialization.jsonObject(
+                        with: data, options:[]) as? NSDictionary{
+                        self.movies = (responseDictionary["results"] as! [NSDictionary]);
+                        self.tableView.reloadData();
+                        self.refreshControl.endRefreshing();
+                    }
                 }
+            }
+            else{
+                self.networkErrorView.alpha = 1;
+                let offset = 3.0;
+                UIView.animate(withDuration: offset, animations: {
+                    self.networkErrorView.alpha = 0
+                })
+                self.refreshControl.endRefreshing();
             }
             KVLoading.hide()
         });

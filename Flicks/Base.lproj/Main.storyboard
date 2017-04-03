@@ -22,6 +22,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.93388229608535767" green="0.93275582790374756" blue="0.71110248565673828" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="uqO-sD-qvv">
+                                    <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Network Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S2o-Qo-3Vo">
+                                            <rect key="frame" x="8" y="15" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="116" id="R4B-lb-0V5" customClass="MovieCell" customModule="Flicks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="116"/>
@@ -65,6 +79,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Flicks Movie Library" id="9aX-El-AKK"/>
                     <connections>
+                        <outlet property="networkErrorView" destination="uqO-sD-qvv" id="jvy-FQ-NUj"/>
                         <outlet property="searchDisplayController" destination="6b4-vS-rCC" id="1hc-jJ-27U"/>
                         <outlet property="tableView" destination="8IB-Y8-ovN" id="NbU-nK-zT0"/>
                     </connections>
