@@ -14,13 +14,16 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - KVLoading (1.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - KVLoading
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  KVLoading: c5113f8e064f5db17b477906d9541a606e1765f1
 
-PODFILE CHECKSUM: 1a4c267d066ea679ca0976fdaacb7804f98c5735
+PODFILE CHECKSUM: 0ac372ee705ed0531c5fe25a41f6e342dd94dda0
 
 COCOAPODS: 1.2.0
